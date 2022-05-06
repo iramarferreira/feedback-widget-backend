@@ -1,14 +1,6 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
-
-//datasource db {
-//  provider = "postgresql"
-//  url      = env("DATABASE_URL")
-//}
 
 datasource db {
   provider = "postgresql"
@@ -16,14 +8,10 @@ datasource db {
 }
 
 model Feedback {
-  // chave primária
-  // id Int @id @default(autoincrement())
-  id String @id @default(uuid())
-  type String
-  comment String
-  // foto é opcional
+  id         String  @id @default(uuid())
+  type       String
+  comment    String
   screenshot String?
 
-  // nome da tabela
   @@map("feedbacks")
 }

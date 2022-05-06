@@ -1,14 +1,15 @@
 import { MailAdapter, SendEmailData } from "../mailAdapter";
 import nodemailer from  'nodemailer';
+import 'dotenv/config'
 
 
 // Configurações para envio de email
 const transport = nodemailer.createTransport({
-    host: "smtp.mailtrap.io",
-    port: 2525,
+    host: process.env.NODEMAILER_HOST,
+    port: Number(process.env.NODEMAILER_PORT),
     auth: {
-      user: "99270771ec8e9c",
-      pass: "2a3e0fc19a6abf"
+      user: process.env.NODEMAILER_USER,
+      pass: process.env.NODEMAILER_PASS
     }
 });
 
